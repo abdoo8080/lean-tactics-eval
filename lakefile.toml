@@ -1,0 +1,29 @@
+name = "lean-tactics-eval"
+defaultTargets = ["lean-tactics-eval", "smt", "duper"]
+
+[[lean_lib]]
+name = "LeanTacticsEval"
+
+[[lean_exe]]
+name = "lean-tactics-eval"
+root = "Main"
+
+[[lean_exe]]
+name = "duper"
+root = "Duper"
+supportInterpreter = true
+
+[[lean_exe]]
+name = "smt"
+root = "Smt"
+supportInterpreter = true
+
+[[require]]
+name = "smt"
+scope = "ufmg-smite"
+rev = "main"
+
+[[require]]
+name = "Duper"
+scope = "leanprover-community"
+rev = "main"
