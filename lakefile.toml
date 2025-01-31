@@ -1,5 +1,10 @@
 name = "tactics-eval"
-defaultTargets = ["duper", "smt"]
+defaultTargets = ["auto", "duper", "smt"]
+
+[[lean_exe]]
+name = "auto"
+root = "Auto"
+supportInterpreter = true
 
 [[lean_exe]]
 name = "duper"
