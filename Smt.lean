@@ -1,16 +1,5 @@
 import Auto.EvaluateAuto.TestAuto
 import Smt.Auto
-import Smt.BitVec
-import Smt.Bool
-import Smt.Builtin
-import Smt.Int
-import Smt.Nat
-import Smt.Options
-import Smt.Prop
-import Smt.Quant
-import Smt.String
-import Smt.Tactic
-import Smt.UF
 
 unsafe def main (args : List String) : IO Unit := do
   let [path] := args | throw $ IO.userError "usage: lake exe smt <path>"
