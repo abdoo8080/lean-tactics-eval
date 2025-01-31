@@ -1,12 +1,5 @@
-name = "lean-tactics-eval"
-defaultTargets = ["lean-tactics-eval", "smt", "duper"]
-
-[[lean_lib]]
-name = "LeanTacticsEval"
-
-[[lean_exe]]
-name = "lean-tactics-eval"
-root = "Main"
+name = "tactics-eval"
+defaultTargets = ["duper", "smt"]
 
 [[lean_exe]]
 name = "duper"
