@@ -16,7 +16,10 @@ unsafe def main (args : List String) : IO Unit := do
     IO.printlnAndFlush s!"[time] load: {t1 - t0}"
     let coreContext := { fileName := "smt", fileMap := default }
     let coreState := { env }
-    let (r, _) ← Lean.Core.CoreM.toIO (EvalAuto.runProverOnConst thm.toName Smt.smtSolverFunc) coreContext coreState
+    let (r, _) ← Lean.Core.CoreM.toIO
+      (Lean.withOptions (·.setNat ``Lean.maxHeartbeats 200000000
+                        |>.setNat ``Lean.maxRecDepth 1048576)
+      (EvalAuto.runProverOnConst thm.toName Smt.smtSolverFunc)) coreContext coreState
     let t2 ← IO.monoMsNow
     IO.printlnAndFlush s!"[time] prove: {t2 - t1}"
     let r ← (Lean.toMessageData r).toString
